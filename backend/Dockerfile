@@ -23,5 +23,8 @@ RUN pip install -r requirements.txt --no-cache-dir
 # в текущую рабочую директорию образа — /app.
 COPY . .
 
+# Устанавливаем переменные окружения для Django
+ENV ALLOWED_HOSTS=localhost,127.0.0.1,yatask.hopto.org,backend,123.123.123.123,89.169.164.51
+
 # При старте контейнера запустить сервер разработки.
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "backend.wsgi"] 
